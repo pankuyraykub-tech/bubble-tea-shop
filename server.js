@@ -64,5 +64,5 @@ app.patch('/api/admin/orders/:id',adminAuth,(req,res)=>{
   order.status=req.body.status; writeOrders(orders); res.json({order});
 });
 app.get('/admin',(_,res)=>res.sendFile(path.join(__dirname,'public','admin.html')));
-app.get('*',(_,res)=>res.sendFile(path.join(__dirname,'public','index.html')));
+app.get('*', (_,res)=>res.sendFile(path.join(__dirname,'public','index.html')));
 app.listen(PORT,()=>console.log(`Bubble Tea running at http://localhost:${PORT}`));
