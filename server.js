@@ -7,6 +7,9 @@ const ADMIN_KEY = process.env.ADMIN_KEY || 'bubble-admin-1234';
 const DB = path.join(__dirname, 'orders.json');
 app.use(express.json({ limit: '100kb' }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 function readOrders() {
   try { return JSON.parse(fs.readFileSync(DB, 'utf8')); }
