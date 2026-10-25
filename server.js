@@ -63,6 +63,7 @@ app.patch('/api/admin/orders/:id',adminAuth,(req,res)=>{
   if(!order) return res.status(404).json({error:'ไม่พบออเดอร์'});
   order.status=req.body.status; writeOrders(orders); res.json({order});
 });
-app.get('/admin',(_,res)=>res.sendFile(path.join(__dirname,'public','admin.html')));
+app.get('/admin', (_,res)=>res.sendFile(path.join(__dirname,'admin.html')));
+app.get('/admin.html', (_,res)=>res.sendFile(path.join(__dirname,'admin.html')));
 app.get('*', (_,res)=>res.sendFile(path.join(__dirname,'public','index.html')));
 app.listen(PORT,()=>console.log(`Bubble Tea running at http://localhost:${PORT}`));
